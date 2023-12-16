@@ -3,20 +3,27 @@ from pydantic import BaseModel
 import pickle
 
 # Eğitilmiş modelinizi buraya yükleyin
-model = pickle.load(open("diabetes.pkl", "rb"))
+model = pickle.load(open("LGBM_model.pkl", "rb"))
 
 app = FastAPI(title="Diyabet Teşhis API'si")
 
 
 class PatientData(BaseModel):
-    Pregnancies: int
-    Glucose: int
-    BloodPressure: int
-    SkinThickness: int
-    Insulin: int
+    Pregnancies: float
+    Glucose: float
+    BloodPressure: float
+    SkinThickness: float
+    Insulin: float
     BMI: float
     DiabetesPedigreeFunction: float
-    Age: int
+    Age: float
+    New_Glucose_Class_Prediabetes : bool
+    New_BMI_Range_Healty : bool   
+    New_BMI_Range_Overweight : bool   
+    New_BMI_Range_Obese : bool   
+    New_BloodPressure_HS1 : bool   
+    New_BloodPressure_HS2 : bool   
+    New_SkinThickness_1 : bool
     
 
 
@@ -31,6 +38,13 @@ async def predict(data: PatientData):
         data.BMI,
         data.DiabetesPedigreeFunction,
         data.Age,
+        data.New_Glucose_Class_Prediabetes,
+        data.New_BMI_Range_Healty,   
+        data.New_BMI_Range_Overweight,   
+        data.New_BMI_Range_Obese,   
+        data.New_BloodPressure_HS1,   
+        data.New_BloodPressure_HS2,   
+        data.New_SkinThickness_1,
     ]
 
     prediction = model.predict([features])[0]

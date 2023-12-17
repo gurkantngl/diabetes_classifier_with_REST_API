@@ -3,9 +3,9 @@ from pydantic import BaseModel
 import pickle
 
 # Eğitilmiş modelinizi buraya yükleyin
-model = pickle.load(open("LGBM_model.pkl", "rb"))
+model = pickle.load(open("XGB_model.pkl", "rb"))
 
-app = FastAPI(title="Diyabet Teşhis API'si")
+app = FastAPI(title="Diabetes Classifier API")
 
 
 class PatientData(BaseModel):

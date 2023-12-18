@@ -17,6 +17,7 @@ uvicorn main:app --reload
 Test the API:
 
 curl -X POST "http://localhost:8000/predict" -H "accept: application/json" -H "Content-Type: application/json" -d
+
   '{"Pregnancies": 1,
     "Glucose": 106,
     "BloodPressure": 70,

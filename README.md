@@ -4,17 +4,20 @@ This API predicts the likelihood of diabetes using input data with a classificat
 
 
 First, install the required libraries:
+
 pip install -r requirements.txt
 
 
 
 Run the API:
+
 uvicorn main:app --reload
 
 
 Test the API:
 
 curl -X POST "http://localhost:8000/predict" -H "accept: application/json" -H "Content-Type: application/json" -d
+
   '{"Pregnancies": 1,
     "Glucose": 106,
     "BloodPressure": 70,
@@ -34,6 +37,7 @@ curl -X POST "http://localhost:8000/predict" -H "accept: application/json" -H "C
 
 
 Review the Results:
+
 {
   "predicted_outcome": 0,
   "label": "Non-diabetic"

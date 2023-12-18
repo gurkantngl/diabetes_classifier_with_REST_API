@@ -1,0 +1,8 @@
+version: "3"
+services:
+  app:
+    build:
+      context: C:\Users\ASUS\Desktop\case
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"

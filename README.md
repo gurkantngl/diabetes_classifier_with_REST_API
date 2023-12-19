@@ -42,3 +42,15 @@ Review the Results:
   "predicted_outcome": 0,
   "label": "Non-diabetic"
 }
+
+
+
+#Run with Docker
+
+Build:
+docker build -t my-fastapi-app . 
+
+
+Run:
+docker run -p 8000:8000 my-fastapi-app
+

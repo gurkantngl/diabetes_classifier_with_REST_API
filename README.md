@@ -2,17 +2,13 @@
 
 This API predicts the likelihood of diabetes using input data with a classification model.
 
-
 First, install the required libraries:
 
 pip install -r requirements.txt
 
-
-
 Run the API:
 
 uvicorn main:app --reload
-
 
 Test the API:
 
@@ -34,8 +30,6 @@ curl -X POST "http://localhost:8000/predict" -H "accept: application/json" -H "C
     "New_BloodPressure_HS2": false,
     "New_SkinThickness_1": false}'
 
-
-
 Review the Results:
 
 {
@@ -43,16 +37,10 @@ Review the Results:
   "label": "Non-diabetic"
 }
 
-
-
-
-
 # Run with Docker
 
 Build:
 docker build -t my-fastapi-app . 
 
-
 Run:
 docker run -p 8000:8000 my-fastapi-app
-
